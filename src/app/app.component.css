@@ -1,0 +1,24 @@
+.homepage-row{
+    display:flex;
+    background: rgb(238, 238, 238);
+    
+}
+
+.homepage-row-image{
+    text-align: center;
+    width:25%;
+    min-width: 100px;
+    padding-right: 100px;
+}
+
+.homepage-row-bio{
+    width:75%;
+    text-align: left;
+    padding-top: 50px;
+    padding-left:30px;
+    padding-right:60px;
+}
+
+.profile-image{
+    width:100%;
+}
