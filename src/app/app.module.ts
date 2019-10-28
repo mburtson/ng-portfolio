@@ -8,7 +8,10 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatMenuModule } from '@angular/material/menu';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatChipsModule} from '@angular/material/chips';
 import { CommonModule } from '@angular/common';
+import { MglTimelineModule } from 'angular-mgl-timeline';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +19,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { SkillsComponent } from './skills/skills.component';
 
 
 @NgModule({
@@ -23,7 +27,8 @@ import { FooterComponent } from './footer/footer.component';
     AppComponent,
     NavbarComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SkillsComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +41,8 @@ import { FooterComponent } from './footer/footer.component';
     MatMenuModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
+    MatChipsModule,
+    MglTimelineModule,
     CommonModule
   ],
   providers: [],

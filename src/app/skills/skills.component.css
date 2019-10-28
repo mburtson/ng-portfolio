@@ -1,0 +1,14 @@
+:host{
+    display:flex;
+    padding-top:20px;
+    padding-bottom:90px;
+    text-align: center;
+}
+.div{
+    text-align:center;
+}
+
+.h1{
+    position: relative;
+    display: inline;
+}
