@@ -1,5 +1,5 @@
 
-.mat-elevation-z10 {
+.mat-elevation-z8 {
     position: fixed;
     bottom:0;
     left:0;
@@ -15,3 +15,7 @@
     border-right:12px;
     margin-top:40px;
 }
+.spacer{
+    width:33%;
+}
+
