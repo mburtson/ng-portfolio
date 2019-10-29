@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 import { MglTimelineModule } from 'angular-mgl-timeline';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -22,6 +23,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SkillsComponent } from './skills/skills.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -47,6 +49,8 @@ import { SkillsComponent } from './skills/skills.component';
     MglTimelineModule,
     MatFormFieldModule,
     MatInputModule,
+    FormsModule,
+    HttpClientModule,
     CommonModule
   ],
   providers: [],

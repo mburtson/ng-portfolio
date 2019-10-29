@@ -13,6 +13,11 @@ export class NavbarComponent implements OnInit {
 
   constructor() { }
 
+  openResume()
+  {
+    window.open("/assets/docs/resume.pdf");
+  }
+
   ngOnInit() {
   }
 

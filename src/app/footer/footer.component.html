@@ -1,20 +1,25 @@
 <mat-toolbar class="mat-elevation-z8" color="primary">
   <mat-toolbar-row class="mat-toolbar-row" style="padding:0px;">
-        <!-- <img height="100%" src="/assets/images/angular.svg"/> -->
+    <!-- <img height="100%" src="/assets/images/angular.svg"/> -->
     <div class="spacer"></div>
-    <div style="width:100%;">       
-            <span> © 2019 Burtson  </span>  
+    <div style="width:100%;">
+      <span> © 2019 Burtson </span>
     </div>
-    
-    <img height="100%" src="/assets/images/github.svg"/>
-    <img height ="80%" style="padding-left:5px; padding-right:5px;" src="/assets/images/linkedin.png"/>
-    <img height ="80%"  style="padding-left:5px; padding-right:5px;" src="/assets/images/pluralsight.png"/>
-    
+    <img class="badge" height="100%" (click)="gitClick()" src="/assets/images/github.svg" />
+    <img
+      class="badge"
+      height="80%"
+      (click)="lInClick()"
+      style="padding-left:5px; padding-right:5px;"
+      src="/assets/images/linkedin.png"
+    />
+    <img
+      class="badge"
+      height="80%"
+      (click)="psClick()"
+      style="padding-left:5px; padding-right:5px;"
+      src="/assets/images/pluralsight.png"
+    />
     <div class="spacer"></div>
   </mat-toolbar-row>
 </mat-toolbar>
-
-<mat-menu x-position="before" #menu="matMenu">
-  <button mat-menu-item>Resume</button>
-  <button mat-menu-item>Experience</button>
-</mat-menu>

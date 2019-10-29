@@ -239,37 +239,36 @@ of my first ng 2+ apps feel free to use and/or modify my app for your own use pe
 <!-- Contact Section -->
 <div class="contact-wrapper" style="background:white; text-align: center;">
   <div style="text-align: center">
-    <h1 style="text-align: center;">Get in Touch</h1>
+    <h1 style="text-align: center;">Contact Me</h1>
   </div>
   
   <div *ngIf="isNotMobile" class="form-container">
-    
-      <mat-form-field style="width:33%; margin:auto;">
-          <input matInput placeholder="Your email">
+     
+      <mat-form-field action="https://formspree.io/mburtson@gmail.com" style="width:33%; margin:auto;">
+          <input matInput placeholder="Your email" [(ngModel)]="email">
       </mat-form-field>
     
-      <mat-form-field style="width:33%; margin:auto;">
-        <textarea matInput placeholder="Your message"></textarea>
+      <mat-form-field action="https://formspree.io/mburtson@gmail.com" style="width:33%; margin:auto;">
+        <textarea matInput name="message" placeholder="Your message"[(ngModel)]="message"></textarea>
       </mat-form-field>
     
-      <button mat-raised-button style="width:33%; margin:auto;" color="accent">Send</button>
+      <button mat-raised-button (click)="submitForm()" style="width:33%; margin:auto;" color="accent">Send</button>
+       
+
     </div>
       
     <div *ngIf="isMobile" class="form-container">
     
       <mat-form-field style="width:100%; margin:auto;">
-          <input matInput placeholder="Your email">
+          <input matInput [(ngModel)]="email" placeholder="Your email">
       </mat-form-field>
     
       <mat-form-field style="width:100%; margin:auto;">
-        <textarea matInput placeholder="Your message"></textarea>
+        <textarea matInput [(ngModel)]="message" placeholder="Your message"></textarea>
       </mat-form-field>
     
-      <div style="width:75%"></div><button mat-raised-button style="width:100%;" color="accent">Send</button>
+      <div  style="width:75%"></div><button (click)="submitForm()" mat-raised-button style="width:100%;" color="accent">Send</button>
     </div>
-   
- 
-  
 
   <!-- End Contact Section -->
 
