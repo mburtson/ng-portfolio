@@ -50,10 +50,30 @@
     width:20%;
 }
 
+.proj-filler{
+    width:25%;
+}
+
+.form-filler{
+    width:25%;
+}
+
 .education-card{
     width: 200px;
 }
 .experience-wrapper{
     width:100%;
     
+}
+
+.form-container{
+    padding-left:30px;
+    padding-right:30px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom:100px;
+}
+
+.form-container > *{
+    width:100%;
 }

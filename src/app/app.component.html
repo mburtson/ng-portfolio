@@ -1,15 +1,17 @@
-<app-navbar></app-navbar>
+<!-- Author: Mark Andrew Burtson 
+This is my Angular Portfolio and this is an honest representation of my skills this is one 
+of my first ng 2+ apps feel free to use and/or modify my app for your own use per MIT-Style License. -->
 
+<app-navbar></app-navbar>
 <div>
   <app-header></app-header>
 </div>
 <mat-divider></mat-divider>
-
 <!-- Mobile Title Section -->
 <div
   *ngIf="isMobile"
   class="mobile-homepage-row"
-  style="padding-top:20px; padding-left:20px; padding-right:20px; padding-bottom:75px;"
+  style="padding-top:20px; padding-left:20px; padding-right:20px; padding-bottom:75px; background:rgb(231, 231, 231);"
 >
   <img style="width:200px" src="/assets/images/markb.png" />
   <h1>About Me</h1>
@@ -18,7 +20,11 @@
 <!-- End Mobile Title Section -->
 
 <!-- Desktop Title Section -->
-<div *ngIf="isNotMobile" class="homepage-row">
+<div
+  *ngIf="isNotMobile"
+  class="homepage-row"
+  style="background:rgb(231, 231, 231);"
+>
   <div class="homepage-row-image">
     <h1>About Me</h1>
     <img class="profile-image" src="/assets/images/markb.png" />
@@ -44,7 +50,8 @@
       </mgl-timeline-entry-content>
       <mgl-timeline-entry-dot
         [class]="color ? 'primary' : 'accent'"
-        [size]="size"></mgl-timeline-entry-dot>
+        [size]="size"
+      ></mgl-timeline-entry-dot>
       <mgl-timeline-entry-side>May 2018 - Present</mgl-timeline-entry-side>
     </mgl-timeline-entry>
 
@@ -58,8 +65,9 @@
         {{ kcpdText }}
       </mgl-timeline-entry-content>
       <mgl-timeline-entry-dot
-      [class]="color ? 'primary' : 'accent'"
-      [size]="size"></mgl-timeline-entry-dot>
+        [class]="color ? 'primary' : 'accent'"
+        [size]="size"
+      ></mgl-timeline-entry-dot>
       <mgl-timeline-entry-side>2018 - Present</mgl-timeline-entry-side>
     </mgl-timeline-entry>
 
@@ -71,15 +79,21 @@
         {{ mcText }}
       </mgl-timeline-entry-content>
       <mgl-timeline-entry-dot
-      [class]="color ? 'primary' : 'accent'"
-      [size]="size"></mgl-timeline-entry-dot>
+        [class]="color ? 'primary' : 'accent'"
+        [size]="size"
+      ></mgl-timeline-entry-dot>
       <mgl-timeline-entry-side>2018 - Present</mgl-timeline-entry-side>
     </mgl-timeline-entry>
   </mgl-timeline>
 </div>
+<!-- End Desktop Experience Section -->
 
 <!-- Mobile Education Section -->
-<div *ngIf="isMobile" class="mobile-education-wrapper">
+<div
+  *ngIf="isMobile"
+  class="mobile-education-wrapper"
+  style="background:rgb(231, 231, 231); padding-top:20px;"
+>
   <h1 style="text-align: center">Education</h1>
   <div *ngIf="isMobile" class="homepage-row">
     <div class="filler"></div>
@@ -95,7 +109,11 @@
 </div>
 <!-- End Mobile Education Section -->
 <!-- Desktop Education Section -->
-<div *ngIf="isNotMobile" class="desktop-education-wrapper">
+<div
+  *ngIf="isNotMobile"
+  class="desktop-education-wrapper"
+  style="background:rgb(231, 231, 231); padding-top:20px;"
+>
   <h1 style="text-align: center">Education</h1>
   <div class="homepage-row">
     <div class="ed-filler"></div>
@@ -111,11 +129,92 @@
   </div>
 </div>
 <!-- Desktop Education Section -->
+
+<!-- Desktop Projects Section -->
+<h1 *ngIf="isNotMobile" style="text-align:center">Projects</h1>
+<div
+  *ngIf="isNotMobile"
+  class="homepage-row"
+  style="text-align: center; padding-left:50px; padding-right:50px;"
+>
+  <div class="proj-filler"></div>
+  <mat-card style="width:50%; min-width:750px;" class="mat-elevation-z10">
+    <div fxLayout="row" fxLayoutGap="20">
+      <div fxFlex="33%"><img width="100%" src="/assets/images/LL.jpg" /></div>
+      <div fxFlex="66%" style="padding-left:50px">
+        <div style="width:100%">
+          <h2 style="padding-top:5px">Lablok</h2>
+          <p>{{ llText }}</p>
+          <a h3 href="https://www.truemarks.org/Software">View Project</a>
+        </div>
+      </div>
+      <div class="proj-filler"></div>
+    </div>
+  </mat-card>
+</div>
+<div
+  *ngIf="isNotMobile"
+  class="homepage-row"
+  style="text-align: center; padding-left:50px; padding-right:50px;"
+>
+  <div class="proj-filler"></div>
+  <mat-card style="width:50%; min-width:750px;" class="mat-elevation-z10">
+    <div fxLayout="row" fxLayoutGap="20">
+      <div fxFlex="33%">
+        <img width="100%" src="/assets/images/DVRREC.jpg" />
+      </div>
+      <div fxFlex="66%" style="padding-left:50px">
+        <h2 style="padding-top:5px;">DVR RECords</h2>
+        <p>{{ dvrText }}</p>
+        <a h3 href="https://www.truemarks.org">View Project</a>
+      </div>
+      <div class="proj-filler"></div>
+    </div>
+  </mat-card>
+</div>
+<!-- End Desktop Projects Section -->
+
+<!-- Mobile Projects Section -->
+<h1 *ngIf="isMobile" style="text-align:center">Projects</h1>
+<div
+  *ngIf="isMobile"
+  class="homepage-row"
+  style="text-align: center; padding-left:20px; padding-right:20px;"
+>
+  <mat-card style="width:100%;" class="mat-elevation-z10">
+    <div fxLayout="row" fxLayoutGap="20">
+      <div fxFlex="100%" style="padding-left:20px">
+        <div style="width:100%">
+          <h2 style="padding-top:5px">Lablok</h2>
+          <p>{{ llText }}</p>
+          <a h3 href="https://www.truemarks.org/Software">View Project</a>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>
+<div
+  *ngIf="isMobile"
+  class="homepage-row"
+  style="text-align: center; padding-left:20px; padding-right:20px;"
+>
+  <mat-card style="width:100%;" class="mat-elevation-z10">
+    <div fxLayout="row" fxLayoutGap="20">
+      <div fxFlex="100%" style="padding-left:20px">
+        <h2 style="padding-top:5px;">DVR RECords</h2>
+        <p>{{ dvrText }}</p>
+        <a h3 href="https://www.truemarks.org">View Project</a>
+      </div>
+    </div>
+  </mat-card>
+</div>
+<!-- End Mobile Projects Section -->
+
 <!-- Desktop Skills Section -->
 <div
   *ngIf="isNotMobile"
   class="homepage-row"
-  style="background:rgb(209, 209, 209);"
+  style="background:rgb(231, 231, 231);"
 >
   <div class="filler"></div>
   <div class="homepage-row-skills">
@@ -129,7 +228,7 @@
 <div
   *ngIf="isMobile"
   class="homepage-row"
-  style="background:rgb(209, 209, 209);"
+  style="background:rgb(231, 231, 231);"
 >
   <div class="homepage-row-skills-mobile">
     <app-skills></app-skills>
@@ -137,5 +236,43 @@
 </div>
 <!-- Mobile Skills Section -->
 
-<app-footer></app-footer>
-<router-outlet></router-outlet>
+<!-- Contact Section -->
+<div class="contact-wrapper" style="background:white; text-align: center;">
+  <div style="text-align: center">
+    <h1 style="text-align: center;">Get in Touch</h1>
+  </div>
+  
+  <div *ngIf="isNotMobile" class="form-container">
+    
+      <mat-form-field style="width:33%; margin:auto;">
+          <input matInput placeholder="Your email">
+      </mat-form-field>
+    
+      <mat-form-field style="width:33%; margin:auto;">
+        <textarea matInput placeholder="Your message"></textarea>
+      </mat-form-field>
+    
+      <button mat-raised-button style="width:33%; margin:auto;" color="accent">Send</button>
+    </div>
+      
+    <div *ngIf="isMobile" class="form-container">
+    
+      <mat-form-field style="width:100%; margin:auto;">
+          <input matInput placeholder="Your email">
+      </mat-form-field>
+    
+      <mat-form-field style="width:100%; margin:auto;">
+        <textarea matInput placeholder="Your message"></textarea>
+      </mat-form-field>
+    
+      <div style="width:75%"></div><button mat-raised-button style="width:100%;" color="accent">Send</button>
+    </div>
+   
+ 
+  
+
+  <!-- End Contact Section -->
+
+  <app-footer></app-footer>
+  <router-outlet></router-outlet>
+</div>

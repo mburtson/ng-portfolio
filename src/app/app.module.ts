@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatChipsModule} from '@angular/material/chips';
 import { CommonModule } from '@angular/common';
 import { MglTimelineModule } from 'angular-mgl-timeline';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material';
 
 
 
@@ -43,6 +45,8 @@ import { SkillsComponent } from './skills/skills.component';
     FlexLayoutModule,
     MatChipsModule,
     MglTimelineModule,
+    MatFormFieldModule,
+    MatInputModule,
     CommonModule
   ],
   providers: [],

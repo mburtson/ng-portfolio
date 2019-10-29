@@ -15,8 +15,7 @@ export class AppComponent implements OnInit {
   color:string = "black";
   expanded:boolean = true;
   
-  bioText:string = `I'm a Software Engineer and Entrepreneur based out of Kansas City, Missouri. I have been augmenting my skills with the full-stack as well as becoming familiar with Angular Javascript
-  and browser technologies. I have experience utilizing WPF, .NET CORE, .NET CORE MVC, and many other technologies. I’m deemed proficient (176) by Pluralsight IQ in the C# language. 
+  bioText:string = `I'm a Software Engineer and Entrepreneur based out of Kansas City, Missouri. I have been augmenting my skills with the full-stack in addition to Angular and browser technologies. I have experience utilizing WPF, .NET CORE, .NET CORE MVC, and many other technologies. I’m deemed proficient (176) by Pluralsight IQ in the C# language. 
   I picked up the OOP fundamentals during my undergraduate studies at DeVry University as well as various methodologies related to the System Development Life-Cycle. 
   I’m always eager to learn new technologies and design principles to produce adaptable, testable, loosely coupled code. A few of my desired philosophies with software development 
   include the following: Good abstractions, encapsulation, leveraging dependency injection for loose coupling, creating strong unit tests during development to promote accurate dependable
@@ -35,7 +34,12 @@ export class AppComponent implements OnInit {
    mcText:string = `Furnished contracted floor covering labor for commercial, residential, and multifamily. My self-discipline, work ethic, and goal-driven motivation has enabled me to provide a sought after brand in my trade. 
    By being a team player, and holding integrity to a high standard I have been able to build business relationships that are invaluable. Supervised up to three individuals during peak season, and was a preferred contractor for 
    MC Flooring’s government contracts. Gained access to complete projects at Fort Leavenworth, and Lake City Ammunition plant. Engaged in brief Spanish conversations with other contractors.`;
+  
+   llText:string = `Lablok is a Case Management System built specifically for Forensic Video Analysts. Lablok handles tracking & reporting of chain of custody, lab requests, case files, lab reports, lab case records, and reviews. 
+   Lablok aids in the workflow of a Forensic Video Analyst. Lablok compiles a complete discovery package for all data associated to a case. Lablok is a Windows-Based desktop application to be released in late 2019.`;
 
+   dvrText:string=`DVR RECords is a mobile application designed to facilate the recovery of video data from CCTV systems. DVR RECords aids investigators and forensic specialists in CCTV system documentation, time calibration, and reporting. 
+   The application offers automated time calibration for conducting the time difference between DVR system time and the actual time as well as automated reports send to the user's inbox.`;
 
   @HostListener("window:resize", [])
   onResize() {
