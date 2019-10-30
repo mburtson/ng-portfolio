@@ -240,7 +240,7 @@ of my first ng 2+ apps feel free to use and/or modify my app for your own use pe
 
 <!-- Contact Section -->
 <div class="contact-wrapper" style="background:white; text-align: center;">
-  <div style="text-align: center">
+  <div class="contact" style="text-align: center">
     <h1 style="text-align: center;">Contact Me</h1>
   </div>
 
@@ -253,9 +253,9 @@ of my first ng 2+ apps feel free to use and/or modify my app for your own use pe
         [formControl]="myEmail"
         [(ngModel)]="email"
         pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
-        required
+        required 
       />
-      <mat-error *ngIf="myEmail.hasError('required')">
+      <mat-error *ngIf="myEmail.hasError('pattern')">
         Enter a vaild email address
       </mat-error>
     </mat-form-field>
