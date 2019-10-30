@@ -12,7 +12,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import { CommonModule } from '@angular/common';
 import { MglTimelineModule } from 'angular-mgl-timeline';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule, MatDialogModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -23,7 +23,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SkillsComponent } from './skills/skills.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EmailDialogComponent } from './dialogs/email-dialog/email-dialog.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     HeaderComponent,
     FooterComponent,
-    SkillsComponent
+    SkillsComponent,
+    EmailDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,12 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    MatDialogModule,
     CommonModule
+  ],
+  entryComponents:[
+    EmailDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
