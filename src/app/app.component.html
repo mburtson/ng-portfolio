@@ -243,41 +243,86 @@ of my first ng 2+ apps feel free to use and/or modify my app for your own use pe
   <div style="text-align: center">
     <h1 style="text-align: center;">Contact Me</h1>
   </div>
-  
-  
 
   <div *ngIf="isNotMobile" class="form-container">
-   
-      <mat-form-field  style="width:33%; margin:auto;">
-          <input matInput placeholder="Your email" (input)="onEmailChanges($event.target.value)" [formControl]="myEmail" [(ngModel)]="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required>
-          <mat-error *ngIf="myEmail.hasError('required')">
-            Enter a vaild email address
-          </mat-error>
-      </mat-form-field>
-    
-      <mat-form-field style="width:33%; margin:auto;">
-        <textarea matInput  placeholder="Your message"[(ngModel)]="message"></textarea>
-      </mat-form-field>
-    
-      <button mat-raised-button [disabled]="buttonIsDisabled" (click)="submitForm()" style="width:33%; margin:auto;" color="accent">Send</button>
-       
+    <mat-form-field style="width:33%; margin:auto;">
+      <input
+        matInput
+        placeholder="Your email"
+        (input)="onEmailChanges($event.target.value)"
+        [formControl]="myEmail"
+        [(ngModel)]="email"
+        pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+        required
+      />
+      <mat-error *ngIf="myEmail.hasError('required')">
+        Enter a vaild email address
+      </mat-error>
+    </mat-form-field>
 
-    </div>
-      
-    <div *ngIf="isMobile" class="form-container">
-    
-      <mat-form-field style="width:100%; margin:auto;">
-          <input matInput [(ngModel)]="email" placeholder="Your email"(input)="onEmailChanges($event.target.value)" [formControl]="myEmail" [(ngModel)]="email" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required>
-      </mat-form-field>
-    
-      <mat-form-field style="width:100%; margin:auto;">
-        <textarea matInput [(ngModel)]="message" placeholder="Your message"></textarea>
-      </mat-form-field>
-    
-      <div  style="width:75%"></div><button (click)="submitForm()" [disabled]="buttonIsDisabled" mat-raised-button style="width:100%;" color="accent">Send</button>
-    </div>
+    <mat-form-field style="width:33%; margin:auto;">
+      <textarea
+        matInput
+        placeholder="Your message"
+        [(ngModel)]="message"
+      ></textarea>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      [disabled]="buttonIsDisabled"
+      (click)="submitForm()"
+      style="width:33%; margin:auto;"
+      color="accent"
+    >
+      Send
+    </button>
+  </div>
+
+  <div *ngIf="isMobile" class="form-container">
+    <mat-form-field style="width:100%; margin:auto;">
+      <input
+        matInput
+        [(ngModel)]="email"
+        placeholder="Your email"
+        (input)="onEmailChanges($event.target.value)"
+        [formControl]="myEmail"
+        [(ngModel)]="email"
+        pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
+        required
+      />
+    </mat-form-field>
+
+    <mat-form-field style="width:100%; margin:auto;">
+      <textarea
+        matInput
+        [(ngModel)]="message"
+        placeholder="Your message"
+      ></textarea>
+    </mat-form-field>
+
+    <div style="width:75%"></div>
+    <button
+      (click)="submitForm()"
+      [disabled]="buttonIsDisabled"
+      mat-raised-button
+      style="width:100%;"
+      color="accent"
+    >
+      Send
+    </button>
+  </div>
 
   <!-- End Contact Section -->
+  <div class="homepage-row" style="padding-bottom:0px;">
+    <div
+      class="subfooter-wrapper"
+      style="background:rgb(231, 231, 231); width:100%; padding-top:18px;"
+    ><h3>Powered By</h3><img width="20%" src="/assets/images/angular.svg"/>
+    <div class="homepage-row"></div>
+    </div>
+    
+  </div>
 
   <app-footer></app-footer>
   <router-outlet></router-outlet>
