@@ -1,19 +1,25 @@
-import { Component, OnInit, HostListener, OnChanges, SimpleChanges } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  HostListener,
+  OnChanges,
+  SimpleChanges
+} from "@angular/core";
 import { HttpClient, HttpParams, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { FormControl, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material';
-import { EmailDialogComponent } from './dialogs/email-dialog/email-dialog.component';
+import { FormControl, Validators } from "@angular/forms";
+import { MatDialog } from "@angular/material";
+import { EmailDialogComponent } from "./dialogs/email-dialog/email-dialog.component";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"]
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = "ang-portfolio";
 
-  constructor(private http: HttpClient, public dialog:MatDialog) {}
+  constructor(private http: HttpClient, public dialog: MatDialog) {}
   isNotMobile: boolean = true;
   isMobile: boolean = false;
   size: number = 50;
@@ -23,10 +29,8 @@ export class AppComponent implements OnInit{
   message: string;
   subject: string = "Portfolio Message";
   newPost: Observable<any>;
-  myEmail: FormControl; 
+  myEmail: FormControl;
   buttonIsDisabled: boolean = true;
-
- 
 
   bioText: string = `I'm a Software Engineer and Entrepreneur based out of Kansas City, Missouri, and I have been augmenting my skills with the full-stack. Recently, I have invested time in learning Angular and browser technologies. I have experience utilizing WPF, .NET CORE, .NET CORE MVC, and many other technologies. I’m deemed proficient (176) by Pluralsight IQ in the C# language. 
   I picked up the OOP fundamentals during my undergraduate studies at DeVry University as well as various methodologies related to the System Development Life-Cycle. 
@@ -66,57 +70,49 @@ export class AppComponent implements OnInit{
     }
   }
 
-  onEmailChanges(emailValue: string):void {
+  onEmailChanges(emailValue: string): void {
     console.log(emailValue);
-    if (this.myEmail.hasError('pattern')){
+    if (this.myEmail.hasError("pattern")) {
       this.buttonIsDisabled = true;
     }
-    if (!this.myEmail.hasError('pattern')){
-      this.buttonIsDisabled = false ;
+    if (!this.myEmail.hasError("pattern")) {
+      this.buttonIsDisabled = false;
     }
-  
   }
   submitForm() {
     let headers = new HttpHeaders({
-      'Content-Type': 'application-json',
-      'Authorization': 'Accept'
-    })
-    let options ={headers: headers};
+      "Content-Type": "application-json",
+      Authorization: "Accept"
+    });
+    let options = { headers: headers };
     var response = this.http
       .post(
-        // "https://mailthis.to/mburtson@gmail.com",
         "https://formspree.io/xgewpoer",
 
         {
           _replyto: this.email,
           message: this.message,
-          _subject: this.subject,
-          
-        },options   
-       
+          _subject: this.subject
+        },
+        options
       )
       .toPromise();
-      
 
-    this.message = "";
-    this.email = "";
     console.log(response);
     this.openDialog();
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(EmailDialogComponent, {
-          });
+    const dialogRef = this.dialog.open(EmailDialogComponent, {});
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      
+      console.log("The dialog was closed");
+      window.scrollTo(0,0);
+      location.reload();
     });
   }
 
   ngOnInit() {
-
-  
     if (window.screen.width < 750) {
       this.isNotMobile = false;
       this.isMobile = true;
@@ -128,13 +124,11 @@ export class AppComponent implements OnInit{
     }
 
     this.myEmail = new FormControl(null, {
-      validators: Validators.required      
+      validators: Validators.required
     });
 
-    if (this.myEmail.hasError('required')){
+    if (this.myEmail.hasError("required")) {
       this.buttonIsDisabled = true;
     }
-  
   }
-
 }

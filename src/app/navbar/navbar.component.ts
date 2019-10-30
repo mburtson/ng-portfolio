@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
     window.open("/assets/docs/resume.pdf");
   }
   goToBottom(){
-    window.scrollTo(0,document.body.scrollHeight);
+    window.scrollTo(0,(document.body.scrollHeight*.80));
   }
 
   ngOnInit() {
