@@ -72,10 +72,10 @@ export class AppComponent implements OnInit {
 
   onEmailChanges(emailValue: string): void {
     console.log(emailValue);
-    if (this.myEmail.hasError("pattern")) {
+    if (this.myEmail.hasError("pattern") || (this.myEmail.hasError("required"))) {
       this.buttonIsDisabled = true;
     }
-    if (!this.myEmail.hasError("pattern")) {
+    if (!this.myEmail.hasError("pattern") && (!this.myEmail.hasError("required"))) {
       this.buttonIsDisabled = false;
     }
   }
