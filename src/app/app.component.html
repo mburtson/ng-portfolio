@@ -30,7 +30,7 @@ of my first ng 2+ apps feel free to use and/or modify my app for your own use pe
     <img class="profile-image" src="/assets/images/markb.png" />
   </div>
   <div *ngIf="isNotMobile" class="homepage-row-bio">
-    <p style="width:80%">
+    <p class="mat-subheading-2 aboutme-text">
       {{ bioText }}
     </p>
   </div>
@@ -41,7 +41,7 @@ of my first ng 2+ apps feel free to use and/or modify my app for your own use pe
 <div class="experience-wrapper">
   <h1 style="text-align: center">Experience</h1>
   <mgl-timeline>
-    <mgl-timeline-entry>
+    <mgl-timeline-entry #truemarks [ngClass]="truemarks.expanded ? ['mb-expanded']:''">
       <mgl-timeline-entry-header>Truemarks LLC</mgl-timeline-entry-header>
       <mgl-timeline-entry-content (expand)="(expanded)">
         <h4>Owner</h4>
@@ -55,7 +55,7 @@ of my first ng 2+ apps feel free to use and/or modify my app for your own use pe
       <mgl-timeline-entry-side>May 2018 - Present</mgl-timeline-entry-side>
     </mgl-timeline-entry>
 
-    <mgl-timeline-entry>
+    <mgl-timeline-entry #kcpd [ngClass]="kcpd.expanded ? ['mb-expanded']:''">
       <mgl-timeline-entry-header
         >Kansas City Police Crime Lab
       </mgl-timeline-entry-header>
@@ -71,7 +71,7 @@ of my first ng 2+ apps feel free to use and/or modify my app for your own use pe
       <mgl-timeline-entry-side>2018 - Present</mgl-timeline-entry-side>
     </mgl-timeline-entry>
 
-    <mgl-timeline-entry>
+    <mgl-timeline-entry #mcFlooring [ngClass]="mcFlooring.expanded ? ['mb-expanded']:''">
       <mgl-timeline-entry-header>MC Flooring LLC </mgl-timeline-entry-header>
       <mgl-timeline-entry-content>
         <h4>Contractor</h4>
@@ -251,7 +251,7 @@ of my first ng 2+ apps feel free to use and/or modify my app for your own use pe
         placeholder="Your email"
         (input)="onEmailChanges($event.target.value)"
         [formControl]="myEmail"
-        [(ngModel)]="email"
+        [(ngModel)] = "email"
         pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
         required 
       />
@@ -264,8 +264,14 @@ of my first ng 2+ apps feel free to use and/or modify my app for your own use pe
       <textarea
         matInput
         placeholder="Your message"
-        [(ngModel)]="message"
-      ></textarea>
+        (input)="onMessageChanges($event.target.value)"
+        [formControl]="myMessage"
+        [(ngModel)] = "message"
+        minlength ="5"
+        required
+      ></textarea><mat-error *ngIf="myMessage.hasError('minlength')">
+          Enter a longer message
+        </mat-error>
     </mat-form-field>
 
     <button
@@ -283,7 +289,6 @@ of my first ng 2+ apps feel free to use and/or modify my app for your own use pe
     <mat-form-field style="width:100%; margin:auto;">
       <input
         matInput
-        [(ngModel)]="email"
         placeholder="Your email"
         (input)="onEmailChanges($event.target.value)"
         [formControl]="myEmail"
@@ -291,14 +296,23 @@ of my first ng 2+ apps feel free to use and/or modify my app for your own use pe
         pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
         required
       />
+      <mat-error *ngIf="myEmail.hasError('pattern')">
+          Enter a vaild email address
+        </mat-error>
     </mat-form-field>
 
     <mat-form-field style="width:100%; margin:auto;">
       <textarea
         matInput
-        [(ngModel)]="message"
+        (input)="onMessageChanges($event.target.value)"
         placeholder="Your message"
-      ></textarea>
+        [formControl]="myMessage"
+        [(ngModel)] = "message"
+        minlength ="5"
+        required
+      ></textarea><mat-error *ngIf="myMessage.hasError('minlength')">
+          Enter a longer message
+        </mat-error>
     </mat-form-field>
 
     <div style="width:75%"></div>

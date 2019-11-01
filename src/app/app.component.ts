@@ -10,6 +10,7 @@ import { Observable } from "rxjs";
 import { FormControl, Validators } from "@angular/forms";
 import { MatDialog } from "@angular/material";
 import { EmailDialogComponent } from "./dialogs/email-dialog/email-dialog.component";
+import { MglTimelineEntryComponent } from 'angular-mgl-timeline/src/timeline/timeline-entry/timeline-entry.component';
 
 @Component({
   selector: "app-root",
@@ -30,8 +31,9 @@ export class AppComponent implements OnInit {
   subject: string = "Portfolio Message";
   newPost: Observable<any>;
   myEmail: FormControl;
+  myMessage: FormControl;
   buttonIsDisabled: boolean = true;
-
+  
   bioText: string = `I'm a Software Engineer and Entrepreneur based out of Kansas City, Missouri, and I have been augmenting my skills with the full-stack. Recently, I have invested time in learning Angular and browser technologies. I have experience utilizing WPF, .NET CORE, .NET CORE MVC, and many other technologies. I’m deemed proficient (176) by Pluralsight IQ in the C# language. 
   I picked up the OOP fundamentals during my undergraduate studies at DeVry University as well as various methodologies related to the System Development Life-Cycle. 
   I’m always eager to learn new technologies and design principles to produce adaptable, testable, loosely coupled code. A few of my desired philosophies with software development 
@@ -75,10 +77,21 @@ export class AppComponent implements OnInit {
     if (this.myEmail.hasError("pattern") || (this.myEmail.hasError("required"))) {
       this.buttonIsDisabled = true;
     }
-    if (!this.myEmail.hasError("pattern") && (!this.myEmail.hasError("required"))) {
+    if (!this.myEmail.hasError("pattern") && (!this.myEmail.hasError("required")) && (!this.myMessage.hasError("required")) && (!this.myMessage.hasError("minlength"))) {
       this.buttonIsDisabled = false;
     }
   }
+
+  onMessageChanges(messageValue: string): void {
+    console.log(messageValue);
+    if (this.myMessage.hasError("minlength") || (this.myMessage.hasError("required"))) {
+      this.buttonIsDisabled = true;
+    }
+    if (!this.myMessage.hasError("minlength") && (!this.myMessage.hasError("required")) && (!this.myEmail.hasError("pattern")) && (!this.myEmail.hasError("required"))) {
+      this.buttonIsDisabled = false;
+    }
+  }
+
   submitForm() {
     let headers = new HttpHeaders({
       "Content-Type": "application-json",
@@ -100,6 +113,11 @@ export class AppComponent implements OnInit {
 
     console.log(response);
     this.openDialog();
+  }
+
+  onExpand(event:boolean, mglComponent:MglTimelineEntryComponent){
+    console.log(mglComponent);
+    console.log(event);
   }
 
   openDialog(): void {
@@ -124,6 +142,10 @@ export class AppComponent implements OnInit {
     }
 
     this.myEmail = new FormControl(null, {
+      validators: Validators.required
+    });
+
+    this.myMessage = new FormControl(null, {
       validators: Validators.required
     });
 

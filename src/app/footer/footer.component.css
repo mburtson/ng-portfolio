@@ -21,6 +21,7 @@
 
 .badge{
     cursor: pointer;
+    transition: all 180ms ease-in;
 }
 
 .badge:hover {
